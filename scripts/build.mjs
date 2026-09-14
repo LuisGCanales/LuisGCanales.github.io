@@ -7,7 +7,7 @@ const linkedin = 'https://www.linkedin.com/in/luiscanalesmx/';
 const github = 'https://github.com/luisgcanales';
 const email = 'luis.canales.oc@gmail.com';
 const cv = '/assets/docs/Luis_Canales_Portfolio_CV.pdf';
-const assetVersion = '20260914-dark';
+const assetVersion = '20260914-question';
 
 const projects = [
   {
