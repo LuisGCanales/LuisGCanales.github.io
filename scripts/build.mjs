@@ -7,7 +7,7 @@ const linkedin = 'https://www.linkedin.com/in/luiscanalesmx/';
 const github = 'https://github.com/luisgcanales';
 const email = 'luis.canales.oc@gmail.com';
 const cv = '/assets/docs/Luis_Canales_Portfolio_CV.pdf';
-const assetVersion = '20260914-portrait';
+const assetVersion = '20260914-dark';
 
 const projects = [
   {
@@ -41,7 +41,7 @@ function head({ title, description, path, image }) {
   <title>${title}</title>
   <meta name="description" content="${description}">
   <meta name="author" content="Luis Canales">
-  <meta name="theme-color" content="#f7f5ef">
+  <meta name="theme-color" content="#0b1118">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
   <link rel="stylesheet" href="/assets/css/styles.css?v=${assetVersion}">

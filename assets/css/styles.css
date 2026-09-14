@@ -1,20 +1,24 @@
 :root {
-  --paper: #f7f5ef;
-  --paper-deep: #efebe2;
-  --ink: #12263f;
-  --ink-soft: #2f4358;
-  --slate: #5d6b78;
-  --muted: #7b858d;
-  --line: #d8d4ca;
-  --line-strong: #b9c3cc;
-  --copper: #a95f2c;
-  --copper-soft: #d9b49a;
-  --white: #fffdfa;
+  --paper: #0b1118;
+  --paper-deep: #0f1821;
+  --surface: #121d27;
+  --surface-raised: #172430;
+  --ink: #f1eee8;
+  --ink-soft: #d1d7dc;
+  --slate: #acb8c2;
+  --muted: #8493a0;
+  --line: rgba(205, 216, 225, 0.12);
+  --line-strong: rgba(205, 216, 225, 0.24);
+  --copper: #d18a5a;
+  --copper-bright: #e3a273;
+  --copper-soft: rgba(209, 138, 90, 0.48);
+  --white: #f8f4ed;
+  --focus: #f1b98f;
   --max: 1180px;
   --reading: 760px;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
-  --shadow: 0 16px 40px rgba(18, 38, 63, 0.07);
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
 }
 
 * {
@@ -22,6 +26,7 @@
 }
 
 html {
+  color-scheme: dark;
   scroll-behavior: smooth;
 }
 
@@ -41,8 +46,13 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: linear-gradient(rgba(18, 38, 63, 0.022) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(221, 230, 237, 0.025) 1px, transparent 1px);
   background-size: 100% 40px;
+}
+
+::selection {
+  background: rgba(209, 138, 90, 0.32);
+  color: var(--white);
 }
 
 a {
@@ -52,7 +62,13 @@ a {
 }
 
 a:hover {
-  color: var(--copper);
+  color: var(--copper-bright);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
 }
 
 img {
@@ -65,8 +81,8 @@ img {
   top: -5rem;
   z-index: 100;
   padding: 0.7rem 1rem;
-  background: var(--ink);
-  color: white;
+  background: var(--copper);
+  color: var(--paper);
 }
 
 .skip-link:focus {
@@ -82,7 +98,7 @@ img {
   position: relative;
   z-index: 20;
   border-bottom: 1px solid var(--line);
-  background: rgba(247, 245, 239, 0.94);
+  background: rgba(11, 17, 24, 0.9);
   backdrop-filter: blur(12px);
 }
 
@@ -110,7 +126,8 @@ img {
   height: 1.8rem;
   display: grid;
   place-items: center;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--copper-soft);
+  color: var(--copper-bright);
   font-family: var(--sans);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
@@ -136,7 +153,7 @@ img {
 
 .nav-cv {
   padding: 0.55rem 0.85rem;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--line-strong);
 }
 
 .nav-toggle {
@@ -220,26 +237,31 @@ img {
   justify-content: center;
   min-height: 46px;
   padding: 0.72rem 1.05rem;
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--white);
+  border: 1px solid var(--copper);
+  background: var(--copper);
+  color: var(--paper);
   font-size: 0.87rem;
   font-weight: 700;
   letter-spacing: 0.035em;
   text-decoration: none;
-  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
 .button:hover {
   transform: translateY(-1px);
-  background: var(--copper);
-  border-color: var(--copper);
-  color: white;
+  background: var(--copper-bright);
+  border-color: var(--copper-bright);
+  color: var(--paper);
 }
 
 .button-secondary {
   background: transparent;
-  color: var(--ink);
+  border-color: var(--line-strong);
+  color: var(--ink-soft);
+}
+
+.button-secondary:hover {
+  border-color: var(--copper);
 }
 
 .hero-profile {
@@ -270,7 +292,7 @@ img {
   background: var(--paper-deep);
   object-fit: cover;
   object-position: center 34%;
-  filter: saturate(0.72) contrast(1.04);
+  filter: saturate(0.66) contrast(1.08) brightness(0.86);
 }
 
 .hero-folio {
@@ -280,7 +302,7 @@ img {
   left: -1.15rem;
   padding: 1.15rem 1.3rem 1.05rem;
   border: 1px solid var(--line-strong);
-  background: rgba(247, 245, 239, 0.97);
+  background: rgba(15, 24, 33, 0.96);
   box-shadow: var(--shadow);
   backdrop-filter: blur(8px);
 }
@@ -349,7 +371,7 @@ img {
 }
 
 .project-list {
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--line-strong);
 }
 
 .project-card {
@@ -359,12 +381,13 @@ img {
   padding: 2.35rem 0;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
-  transition: padding 180ms ease, border-color 180ms ease;
+  transition: padding 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
 .project-card:hover {
   padding-left: 0.7rem;
   border-color: var(--copper);
+  background: rgba(18, 29, 39, 0.72);
   color: inherit;
 }
 
@@ -523,15 +546,15 @@ img {
 }
 
 .article-shell {
-  width: min(calc(100% - 3rem), 1040px);
+  width: min(calc(100% - 3rem), 1060px);
   margin-inline: auto;
 }
 
 .content-section {
   display: grid;
-  grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
-  gap: clamp(2.5rem, 7vw, 6.5rem);
-  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  grid-template-columns: minmax(170px, 0.3fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5.75rem);
+  padding: clamp(4.5rem, 7vw, 6.75rem) 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -541,7 +564,7 @@ img {
 
 .content-section h2 {
   margin: 0;
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
 }
 
 .content-section h3 {
@@ -554,6 +577,12 @@ img {
 .content-section p {
   margin: 0 0 1.15rem;
   color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.78;
+}
+
+.content-section > :last-child {
+  max-width: var(--reading);
 }
 
 .content-section p:last-child {
@@ -562,8 +591,10 @@ img {
 
 .lead-question {
   margin: 0;
-  padding-left: 1.4rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid var(--line-strong);
   border-left: 3px solid var(--copper);
+  background: var(--surface);
   color: var(--ink);
   font-family: var(--serif);
   font-size: clamp(1.55rem, 2.8vw, 2.3rem);
@@ -574,7 +605,8 @@ img {
 .callout {
   padding: clamp(1.4rem, 3vw, 2rem);
   border: 1px solid var(--line-strong);
-  background: rgba(255, 253, 250, 0.62);
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
 }
 
 .principle-box strong,
@@ -605,7 +637,7 @@ img {
 
 .info-card {
   padding: 1.35rem;
-  background: var(--paper);
+  background: var(--surface);
 }
 
 .info-card p {
@@ -637,6 +669,7 @@ img {
   padding: 1rem 0 1rem 2rem;
   border-top: 1px solid var(--line);
   color: var(--ink-soft);
+  line-height: 1.7;
 }
 
 .question-list li::before {
@@ -675,7 +708,7 @@ img {
 .framework {
   padding: clamp(1.2rem, 3vw, 2rem);
   border: 1px solid var(--line-strong);
-  background: var(--white);
+  background: var(--surface);
   box-shadow: var(--shadow);
 }
 
@@ -697,6 +730,7 @@ img {
   min-height: 68px;
   padding: 0.7rem;
   border: 1px solid var(--line-strong);
+  background: var(--paper-deep);
   color: var(--ink-soft);
   font-size: 0.82rem;
   font-weight: 700;
@@ -705,9 +739,9 @@ img {
 }
 
 .flow-node.primary {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: white;
+  border-color: var(--copper);
+  background: var(--copper);
+  color: var(--paper);
 }
 
 .flow-node.accent {
@@ -735,14 +769,14 @@ img {
   gap: 1rem;
   padding: 1rem;
   border: 1px solid var(--line-strong);
-  background: var(--white);
+  background: var(--surface);
 }
 
 .ecosystem-card {
   min-height: 150px;
   padding: 1.25rem;
   border: 1px solid var(--line);
-  background: var(--paper);
+  background: var(--paper-deep);
 }
 
 .ecosystem-card span {
@@ -763,7 +797,7 @@ img {
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--line-strong);
 }
 
 .comparison-table th,
@@ -799,7 +833,7 @@ img {
 }
 
 .fact-list {
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--line-strong);
 }
 
 .fact-row {
@@ -826,7 +860,7 @@ img {
 .site-footer {
   padding: 3.5rem 0;
   border-top: 1px solid var(--line);
-  background: var(--ink);
+  background: #070b10;
   color: var(--white);
 }
 
@@ -846,7 +880,7 @@ img {
 .footer-copy {
   max-width: 590px;
   margin: 0.55rem 0 0;
-  color: #bec9d2;
+  color: var(--slate);
 }
 
 .footer-links {
@@ -865,8 +899,8 @@ img {
 .footer-meta {
   margin-top: 2.2rem;
   padding-top: 1.2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  color: #9caeba;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 0.78rem;
 }
 
@@ -891,7 +925,7 @@ img {
     gap: 0;
     padding: 0 1rem 1rem;
     border-bottom: 1px solid var(--line);
-    background: var(--paper);
+    background: rgba(11, 17, 24, 0.98);
   }
 
   .site-nav[data-open="true"] {
