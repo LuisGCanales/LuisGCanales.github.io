@@ -7,6 +7,7 @@ const linkedin = 'https://www.linkedin.com/in/luiscanalesmx/';
 const github = 'https://github.com/luisgcanales';
 const email = 'luis.canales.oc@gmail.com';
 const cv = '/assets/docs/Luis_Canales_Portfolio_CV.pdf';
+const assetVersion = '20260914-portrait';
 
 const projects = [
   {
@@ -43,7 +44,7 @@ function head({ title, description, path, image }) {
   <meta name="theme-color" content="#f7f5ef">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=${assetVersion}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Luis Canales — Financial Markets Portfolio">
   <meta property="og:title" content="${title}">
