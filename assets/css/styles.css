@@ -264,6 +264,7 @@ img {
 .hero-portrait {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 6 / 7;
   border: 1px solid var(--line-strong);
   background: var(--paper-deep);
