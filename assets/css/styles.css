@@ -292,7 +292,7 @@ img {
   background: var(--paper-deep);
   object-fit: cover;
   object-position: center 34%;
-  filter: saturate(0.66) contrast(1.08) brightness(0.86);
+  filter: none;
 }
 
 .hero-folio {
