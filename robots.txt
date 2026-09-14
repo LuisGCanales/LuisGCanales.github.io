@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://luisgcanales.github.io/sitemap.xml
