@@ -7,7 +7,7 @@ const linkedin = 'https://www.linkedin.com/in/luiscanalesmx/';
 const github = 'https://github.com/luisgcanales';
 const email = 'luis.canales.oc@gmail.com';
 const cv = '/assets/docs/Luis_Canales_Portfolio_CV.pdf';
-const assetVersion = '20260914-question-2';
+const assetVersion = '20260914-visuals';
 
 const projects = [
   {
@@ -307,28 +307,61 @@ const usdmxn = layout(
     <section class="content-section">
       <div><p class="section-index">03</p><h2>Decision framework</h2></div>
       <div>
-        <div class="framework" role="img" aria-label="USD/MXN analytical architecture">
-          <div class="framework-flow">
-            <div class="flow-stack">
-              <div class="flow-node">Global market factors</div>
-              <div class="flow-node">Comparable currencies</div>
+        <figure class="research-visual fx-architecture" aria-labelledby="fx-visual-title" aria-describedby="fx-visual-caption">
+          <header class="visual-header">
+            <p class="visual-label">Research architecture</p>
+            <h3 id="fx-visual-title">From common market conditions to movement requiring further analysis.</h3>
+          </header>
+          <div class="fx-core-flow">
+            <div class="fx-inputs">
+              <div class="diagram-node">
+                <span class="node-index">01A</span>
+                <strong>Global market conditions</strong>
+                <p>Broad dollar, risk, volatility, yields, and commodities.</p>
+              </div>
+              <div class="diagram-node">
+                <span class="node-index">01B</span>
+                <strong>Comparable currencies</strong>
+                <p>Shared movement across a pre-defined peer set.</p>
+              </div>
             </div>
-            <div class="flow-arrow" aria-hidden="true">→</div>
-            <div class="flow-node primary">Synthetic MXN benchmark</div>
-            <div class="flow-arrow" aria-hidden="true">→</div>
-            <div class="flow-stack">
-              <div class="flow-node accent">Observed vs benchmark</div>
-              <div class="flow-node">Residual for further analysis</div>
+            <div class="diagram-connector" aria-hidden="true"><span>Construct</span><b>→</b></div>
+            <div class="diagram-node diagram-node-benchmark">
+              <span class="node-index">02</span>
+              <strong>Synthetic MXN Benchmark</strong>
+              <p>A reference conditional on the defined information set.</p>
+            </div>
+            <div class="diagram-connector" aria-hidden="true"><span>Compare</span><b>→</b></div>
+            <div class="fx-diagnostic">
+              <div class="diagram-node">
+                <span class="node-index">03</span>
+                <strong>Observed USD/MXN vs benchmark</strong>
+              </div>
+              <div class="diagnostic-link" aria-hidden="true">↓</div>
+              <div class="diagram-node diagram-node-residual">
+                <span class="node-index">04</span>
+                <strong>Residual / departure</strong>
+                <p>Movement not captured by the current benchmark.</p>
+              </div>
+              <div class="diagnostic-link" aria-hidden="true">↓</div>
+              <div class="diagram-node">
+                <span class="node-index">05</span>
+                <strong>Further analysis</strong>
+                <p>Incremental factors, regimes, events, and horizon-specific context.</p>
+              </div>
             </div>
           </div>
-          <p class="framework-caption">The residual is movement not captured by the current benchmark—not automatically a Mexico-specific causal shock.</p>
-        </div>
-        <div class="cards-grid space-top">
-          <article class="info-card"><p class="card-label">Market dependence</p><p>Map contemporaneous, lagged, and changing relationships across market factors.</p></article>
-          <article class="info-card"><p class="card-label">Incremental factors</p><p>Test whether relative-rate and Mexico-specific blocks add information beyond the global benchmark.</p></article>
-          <article class="info-card"><p class="card-label">Event layer</p><p>Examine abnormal behavior around pre-defined events while controlling retrospective narrative bias.</p></article>
-          <article class="info-card"><p class="card-label">Medium-term context</p><p>Assess whether levels remain broadly consistent with selected macro-financial relationships.</p></article>
-        </div>
+          <div class="analysis-layers">
+            <p class="visual-label">Additional analytical layers</p>
+            <div class="layer-grid">
+              <div class="layer-item"><strong>Relative monetary conditions</strong><span>Mexico–U.S. rates, expected paths, real-rate measures, and carry conditions.</span></div>
+              <div class="layer-item"><strong>Mexico-specific information</strong><span>Sovereign risk, positioning, flows, and fiscal or institutional developments.</span></div>
+              <div class="layer-item"><strong>Event layer</strong><span>Pre-defined monetary, macro, trade, fiscal, credit, and institutional events.</span></div>
+              <div class="layer-item"><strong>Medium-term context</strong><span>Lower-frequency macro-financial relationships assessed separately.</span></div>
+            </div>
+          </div>
+          <figcaption id="fx-visual-caption"><strong>Interpretation guardrail</strong> Residual movement is not automatically a Mexico-specific causal shock. It is a diagnostic starting point for further analysis.</figcaption>
+        </figure>
       </div>
     </section>
     <section class="content-section">
@@ -458,12 +491,36 @@ const derivatives = layout(
     </section>
     <section class="content-section">
       <div><p class="section-index">04</p><h2>Market ecosystem</h2></div>
-      <div class="ecosystem" role="img" aria-label="Mexican derivatives market ecosystem">
-        <article class="ecosystem-card"><span>Regulatory authorities</span><p>Banco de México · CNBV · CONSAR · CNSF</p></article>
-        <article class="ecosystem-card"><span>Intermediaries &amp; users</span><p>Banks · Dealers · Pension entities · Insurers · Funds · Corporates</p></article>
-        <article class="ecosystem-card"><span>Trading &amp; post-trade</span><p>MexDer · Asigna · OTC infrastructure · Recognized foreign CCPs</p></article>
-        <article class="ecosystem-card"><span>International markets</span><p>Offshore dealers · Global liquidity · Cross-border clearing · Foreign regulators</p></article>
-      </div>
+      <figure class="research-visual ecosystem-architecture" aria-labelledby="ecosystem-visual-title" aria-describedby="ecosystem-visual-caption">
+        <header class="visual-header">
+          <p class="visual-label">Institutional map</p>
+          <h3 id="ecosystem-visual-title">A system of safeguards, infrastructure, incentives, participation, and cross-border structure.</h3>
+        </header>
+        <div class="ecosystem-map">
+          <div class="ecosystem-stage">
+            <p class="visual-label">System actors</p>
+            <div class="ecosystem-actors">
+              <section class="ecosystem-group"><span class="node-index">A</span><strong>Regulatory authorities</strong><p>Banco de México · CNBV · CONSAR · CNSF</p></section>
+              <section class="ecosystem-group"><span class="node-index">B</span><strong>Intermediaries &amp; users</strong><p>Banks · Dealers · Pension entities · Insurers · Funds · Corporates</p></section>
+              <section class="ecosystem-group"><span class="node-index">C</span><strong>Trading &amp; post-trade</strong><p>MexDer · Asigna · OTC infrastructure · Recognized foreign CCPs</p></section>
+              <section class="ecosystem-group"><span class="node-index">D</span><strong>International markets</strong><p>Offshore dealers · Global liquidity · Cross-border clearing · Foreign regulators</p></section>
+            </div>
+          </div>
+          <div class="ecosystem-connector" aria-hidden="true">↓</div>
+          <div class="mechanism-layer">
+            <p class="visual-label">Interaction mechanisms under investigation</p>
+            <div class="mechanism-grid">
+              <span>Prudential safeguards</span><span>Participant constraints</span><span>Infrastructure</span><span>Clearing &amp; collateral</span><span>Market access</span><span>Incentives</span><span>Onshore / offshore competition</span>
+            </div>
+          </div>
+          <div class="ecosystem-connector" aria-hidden="true">↓</div>
+          <div class="research-dimensions">
+            <p class="visual-label">Research dimensions</p>
+            <div><span>Market depth</span><span>Liquidity</span><span>Participation</span><span>Localization of activity</span></div>
+          </div>
+        </div>
+        <figcaption id="ecosystem-visual-caption"><strong>Analytical map—not a causal result.</strong> The research examines how these actors and mechanisms interact; it does not assume that any single factor determines market development.</figcaption>
+      </figure>
     </section>
     <section class="content-section">
       <div><p class="section-index">05</p><h2>Research framework</h2></div>
