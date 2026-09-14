@@ -242,9 +242,50 @@ img {
   color: var(--ink);
 }
 
+.hero-profile {
+  position: relative;
+  align-self: center;
+  padding: 0 0 7.4rem 1.25rem;
+}
+
+.portrait-frame {
+  position: relative;
+  margin: 0;
+}
+
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: -0.7rem 0.7rem 0.7rem -0.7rem;
+  z-index: -1;
+  border: 1px solid var(--copper-soft);
+}
+
+.hero-portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 6 / 7;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-deep);
+  object-fit: cover;
+  object-position: center 34%;
+  filter: saturate(0.72) contrast(1.04);
+}
+
 .hero-folio {
-  padding: 1.6rem 0 0 1.6rem;
-  border-left: 1px solid var(--line-strong);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: -1.15rem;
+  padding: 1.15rem 1.3rem 1.05rem;
+  border: 1px solid var(--line-strong);
+  background: rgba(247, 245, 239, 0.97);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.hero-folio .kicker {
+  margin-bottom: 0.75rem;
 }
 
 .folio-row {
@@ -871,14 +912,18 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .hero-folio,
   .project-side {
     padding-left: 0;
     border-left: 0;
   }
 
-  .hero-folio {
+  .hero-profile {
     max-width: 540px;
+    padding: 0 0 6.9rem 1rem;
+  }
+
+  .hero-folio {
+    left: 2.4rem;
   }
 
   .section-head,
@@ -930,6 +975,23 @@ img {
 
   .hero h1 {
     font-size: clamp(3.3rem, 18vw, 4.7rem);
+  }
+
+  .hero-profile {
+    padding: 0;
+  }
+
+  .portrait-frame::before {
+    inset: -0.5rem 0.5rem 0.5rem -0.5rem;
+  }
+
+  .hero-folio {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: calc(100% - 1rem);
+    margin: -1.25rem 0 0 1rem;
   }
 
   .project-card {

@@ -163,11 +163,16 @@ const home = layout(
           <a class="button button-secondary" href="${cv}" target="_blank" rel="noopener">Portfolio CV</a>
         </div>
       </div>
-      <aside class="hero-folio" aria-label="Analytical approach">
-        <p class="kicker">Analytical sequence</p>
-        <div class="folio-row"><strong>01</strong><span>Frame the financial question</span></div>
-        <div class="folio-row"><strong>02</strong><span>Structure uncertainty and evidence</span></div>
-        <div class="folio-row"><strong>03</strong><span>Translate analysis into implications</span></div>
+      <aside class="hero-profile" aria-label="Luis Canales and analytical approach">
+        <figure class="portrait-frame">
+          <img class="hero-portrait" src="/assets/images/luis-canales.jpg" alt="Portrait of Luis Canales" width="800" height="800" fetchpriority="high">
+        </figure>
+        <div class="hero-folio">
+          <p class="kicker">Analytical sequence</p>
+          <div class="folio-row"><strong>01</strong><span>Frame the financial question</span></div>
+          <div class="folio-row"><strong>02</strong><span>Structure uncertainty and evidence</span></div>
+          <div class="folio-row"><strong>03</strong><span>Translate analysis into implications</span></div>
+        </div>
       </aside>
     </div>
   </section>
