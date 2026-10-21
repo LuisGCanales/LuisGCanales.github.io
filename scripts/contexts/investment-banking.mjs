@@ -34,6 +34,7 @@ export function renderInvestmentBanking({ layout, linkedin, email, projectCards,
     image: '/assets/images/og-home.jpg',
     robots: 'noindex, follow',
     socialSiteName: 'Luis Canales — Investment Banking',
+    styleVersion: '20261020-ib-professional-case',
   }, 'home', `<div class="ib-page">
   <section class="hero ib-hero" aria-labelledby="ib-title">
     <div class="shell ib-hero-grid">
@@ -75,6 +76,17 @@ export function renderInvestmentBanking({ layout, linkedin, email, projectCards,
         <div><span class="kicker">Validation &amp; documentation</span><p>Investigate discrepancies and make assumptions traceable.</p></div>
         <div><span class="kicker">Reports &amp; presentations</span><p>Connect findings and limitations to the stakeholder’s decision.</p></div>
       </div>
+      <article class="ib-engagement" id="selected-professional-engagement" aria-labelledby="engagement-title">
+        <p class="kicker">Selected professional engagement · International healthcare research consulting</p>
+        <div class="ib-engagement-grid">
+          <h3 id="engagement-title">Reframing a Client Problem into an Implemented Analytical Solution</h3>
+          <div class="ib-copy">
+            <p>A clinical research team initially requested the adoption of an established statistical methodology. After reviewing the literature and their research objectives, I identified important limitations in transferring that approach to their data and intended questions.</p>
+            <p>Through successive discussions, I clarified the team’s objectives, challenged the original assumptions and designed an alternative probabilistic framework. With stakeholder agreement, I implemented and validated it using their clinical data, producing estimates, analytical reports, presentations and revisions to the research manuscript.</p>
+            <p>The work provided a more appropriate analytical foundation for understanding patient outcomes and potential future evidence-based decisions. Throughout the engagement, I explained the rationale, findings, limitations and alternatives to stakeholders without specialized statistical training.</p>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
   <section class="section" id="financial-preparation" aria-labelledby="preparation-title">
@@ -91,10 +103,26 @@ export function renderInvestmentBanking({ layout, linkedin, email, projectCards,
       <p class="ib-education"><strong>B.Sc. Mathematics · Faculty of Sciences, UNAM</strong><span>In progress · Expected May 2027 · Full-time work availability, with remaining coursework outside working hours.</span></p>
     </div>
   </section>
+  <section class="section" id="understanding-the-function" aria-labelledby="workflow-title">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="section-index">03 / Understanding the function</p><h2 id="workflow-title">Analysis in service of the client’s decision.</h2></div>
+        <div class="ib-copy"><p>What attracts me to Investment Banking is the connection between understanding a business, evaluating financial alternatives and helping develop a solution that can be executed. This is how I understand the workflow I want to learn within an experienced team.</p>
+          <p>The analyst’s contribution includes detailed research, updating models, preparing materials, checking figures, incorporating feedback and keeping deliverables consistent under deadlines. I want to learn that daily work and its standards.</p></div>
+      </div>
+      <ol class="ib-workflow">
+        <li><h3>Understand the objective.</h3><p>Clarify the client’s business, priorities, constraints and decision context.</p></li>
+        <li><h3>Build the financial picture.</h3><p>Analyze performance, cash generation, capital structure, the industry and relevant market conditions.</p></li>
+        <li><h3>Evaluate alternatives.</h3><p>Develop and test assumptions, valuation approaches and scenarios for strategic or financing decisions.</p></li>
+        <li><h3>Assess execution requirements.</h3><p>Consider transaction economics, feasibility, due diligence, documentation and coordination with legal, regulatory and other specialists.</p></li>
+        <li><h3>Support communication and execution.</h3><p>Prepare and refine materials, respond to review and support the solution through the institutional process.</p></li>
+      </ol>
+    </div>
+  </section>
   <section class="section" id="selected-work" aria-labelledby="evidence-title">
     <div class="shell">
       <div class="section-head">
-        <div><p class="section-index">03 / Selected work</p><h2 id="evidence-title">Financial questions in context.</h2></div>
+        <div><p class="section-index">04 / Selected work</p><h2 id="evidence-title">Financial questions in context.</h2></div>
         <p>${flagship ? 'Broader research complements the applied case with a framework for organizing macro-financial uncertainty.' : 'Independent research and interdisciplinary project work provide supporting evidence of how I organize uncertainty and connect analysis with practical constraints.'}</p>
       </div>
       ${flagship ? `<p><a class="ib-text-link" href="${researchHref}">Explore USD/MXN research — empirical analysis in development →</a></p>` : `${projectCards([{
@@ -113,22 +141,6 @@ export function renderInvestmentBanking({ layout, linkedin, email, projectCards,
         <h3>Carbon Oh-No! · Climate-finance proof of concept</h3>
         <p>As quantitative modeling lead in a nine-person team, I connected the proof of concept with carbon-credit regulation, financing considerations and implementation planning. The experience reinforced the need to test an analytical idea against requirements beyond the model itself.</p>
       </article>`}
-    </div>
-  </section>
-  <section class="section" id="understanding-the-function" aria-labelledby="workflow-title">
-    <div class="shell">
-      <div class="section-head">
-        <div><p class="section-index">04 / Understanding the function</p><h2 id="workflow-title">Analysis in service of the client’s decision.</h2></div>
-        <div class="ib-copy"><p>What attracts me to Investment Banking is the connection between understanding a business, evaluating financial alternatives and helping develop a solution that can be executed. This is how I understand the workflow I want to learn within an experienced team.</p>
-          <p>The analyst’s contribution includes detailed research, updating models, preparing materials, checking figures, incorporating feedback and keeping deliverables consistent under deadlines. I want to learn that daily work and its standards.</p></div>
-      </div>
-      <ol class="ib-workflow">
-        <li><h3>Understand the objective.</h3><p>Clarify the client’s business, priorities, constraints and decision context.</p></li>
-        <li><h3>Build the financial picture.</h3><p>Analyze performance, cash generation, capital structure, the industry and relevant market conditions.</p></li>
-        <li><h3>Evaluate alternatives.</h3><p>Develop and test assumptions, valuation approaches and scenarios for strategic or financing decisions.</p></li>
-        <li><h3>Assess execution requirements.</h3><p>Consider transaction economics, feasibility, due diligence, documentation and coordination with legal, regulatory and other specialists.</p></li>
-        <li><h3>Support communication and execution.</h3><p>Prepare and refine materials, respond to review and support the solution through the institutional process.</p></li>
-      </ol>
     </div>
   </section>
   <section class="section" aria-labelledby="approach-title">

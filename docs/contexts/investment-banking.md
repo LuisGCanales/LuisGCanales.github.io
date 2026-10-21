@@ -29,6 +29,7 @@ Still unproven: completed integrated three-statement corporate modeling, corpora
 | --- | --- | --- |
 | DXANDI, Quantitative Research Consultant, Apr 2024–Jun 2026; approximately 20 international engagements | Supplied IB CV and cover letter; candidate-declared professional experience | Hero and early execution narrative; no invented client names, finance mandates or results |
 | Reports, presentations, practical analytical tools, methodology and validation | Same documents | Concrete deliverable types; no confidential client materials |
+| Anonymized healthcare research engagement (PASS; internal reference) | Supplied internal case brief v1.0; implemented and validated with actual client data | Selected professional engagement within Professional Execution: initial requirement, transferability review, clarified objectives, agreed methodological redesign, implementation, validation and stakeholder-oriented deliverables |
 | Financial statements and ratios; corporate finance fundamentals | Approved CV; prior accounting coursework and financial preparation | Explicitly training/coursework, not transaction experience |
 | B.Sc. Mathematics, UNAM; expected May 2027; full-time availability | Approved CV | Degree in progress; availability as declared, no eligibility certification |
 | USD/MXN Macro-Financial Decision Framework | Current canonical page `/work/usdmxn/`; design complete, empirical analysis in development | Decision-support research relevant to scenarios and cross-border uncertainty; no validated forecasting or advisory claim |
@@ -39,15 +40,17 @@ Still unproven: completed integrated three-statement corporate modeling, corpora
 
 Repository and current published materials govern technical state and research maturity. Approved CV/letter govern biographical wording. Narrower wording prevails where sources differ. The assessment describes an older CV hierarchy; the actual supplied CV already foregrounds professional experience and is authoritative. Approximately 10–12 journal submissions are omitted for brevity; never describe these as publications.
 
+The anonymized PASS narrative is professional-execution evidence, not a financial advisory mandate or corporate valuation flagship. The implemented methodology, estimates, reports, presentations and manuscript revisions are established deliverables in the supplied case brief. Future decision-support applications remain potential: claim no demonstrated clinical improvements, cost savings, shorter hospital stays, causal treatment effects, manuscript publication or operational patient-treatment deployment. Do not publish client identities, clinical records, private reports, unpublished manuscript content or the complete internal case brief. Keep only the approved short public narrative and these maintenance boundaries in this repository.
+
 ## Voice and State A structure
 
 Use direct first-person professional English, precise evidence categories and restrained claims. Lead with useful analytical execution and sustained finance preparation. Avoid mathematical spectacle, defensive apologies, vacancy keywords and generic skill inventories.
 
 1. Hero: Investment Banking; contribution; consulting scope; IB CV and execution CTA; compact preparation/education facts.
-2. Professional execution: stakeholder question → method and validation → usable deliverables; explain transfer without inventing transactions.
+2. Professional execution: stakeholder question → method and validation → usable deliverables; explain transfer without inventing transactions. Preserve the DXANDI introduction and three deliverable categories, then add the compact anonymized PASS engagement inside this section, not as a separate project or top-level section.
 3. Financial preparation: accounting/coursework, corporate finance, markets/instrument valuation; education and availability.
-4. Selected work: canonical USD/MXN research, current status and relevance; use the public portfolio's shared project-card renderer and styles so the whole preview is one link with the same hover treatment. Preserve the origin parameter. Follow with a compact climate-finance proof of concept.
-5. Understanding the function: client objective, financial analysis, valuation/alternatives, feasibility/diligence/coordination, materials and execution support. Explicitly personal understanding, not employment history; include repetitive work and review.
+4. Understanding the function (public section 03): client objective, financial analysis, valuation/alternatives, feasibility/diligence/coordination, materials and execution support. Explicitly personal understanding, not employment history; include repetitive work and review.
+5. Selected work (public section 04): canonical USD/MXN research, current status and relevance; use the public portfolio's shared project-card renderer and styles so the whole preview is one link with the same hover treatment. Preserve the origin parameter. Follow with a compact climate-finance proof of concept. Functional understanding precedes this supporting research; keep existing section IDs and navigation anchors.
 6. Analytical approach: Frame / Structure / Test / Translate, compact editorial sequence rather than another large process diagram.
 7. Direction/about and contact: reliable contribution while learning institutional judgment; long-term IB interest; IB CV, LinkedIn, email and broader portfolio.
 
@@ -73,7 +76,7 @@ Proposed route: `/investment-banking/corporate-valuation-case/`. It is not gener
 
 Before enabling: inspect company/industry research, reconciled historicals, integrated projections, DCF/comparables and EV bridge as actually completed; sources, assumptions, dates/currencies, inspectable workbook/model, checks, sensitivities, memo/presentation and limitations. Any transaction scenario is explicitly hypothetical, with no institutional sponsorship or live mandate implied. Describe only completed scope; a narrower finished case can be considered on its merits under a revised brief.
 
-When enabled, the case CTA becomes primary and a featured case section follows the hero. The CV stays prominent and can be updated independently. DXANDI remains early professional evidence. Compress secondary research/project material (the renderer reduces it to a canonical research link), shorten method/workflow prose if needed, and avoid counting one artifact twice. Keep the canonical context URL, voice, contact details and public portfolio identity stable.
+When enabled, the case CTA becomes primary and a featured case section follows the hero. The CV stays prominent and can be updated independently. DXANDI, including the anonymized PASS engagement, remains supporting professional evidence. PASS never occupies the featured flagship position. Compress secondary research/project material (the renderer reduces it to a canonical research link), shorten method/workflow prose if needed, and avoid counting one artifact twice. Keep the canonical context URL, voice, contact details and public portfolio identity stable.
 
 Future implementation must read this brief, `scripts/contexts/investment-banking.mjs` (content, configuration, rendering), `scripts/build.mjs` (layout, metadata, routing, destination validation), `assets/css/styles.css` (scoped styles), `assets/js/main.js` (session navigation), and the current IB CV asset. Review new flagship evidence before edits.
 

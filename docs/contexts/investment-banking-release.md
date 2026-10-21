@@ -42,3 +42,11 @@ The page demonstrates professional analytical execution and a credible financial
 Consult `docs/contexts/investment-banking.md`, `scripts/contexts/investment-banking.mjs`, `scripts/build.mjs`, `assets/css/styles.css`, `assets/js/main.js`, and `assets/docs/Luis_Canales_Investment_Banking_CV.pdf` before integration.
 
 Session return navigation requires JavaScript. When browser storage is unavailable, origin parameters preserve the journey; with JavaScript disabled, direct links and the browser Back action remain usable. Browser checks used controlled iframe viewport widths, not physical mobile devices.
+
+## Follow-up — professional engagement and section hierarchy
+
+- Added the approved anonymized PASS narrative after the DXANDI deliverable categories, inside Professional Execution. Only the short public account is included; the internal brief, clinical data and private deliverables are not copied into this repository.
+- Understanding the Function is now section 03, before Selected Work (04). Their text and IDs are preserved. The hero, all five public pages, navigation JavaScript and both CV PDFs are byte-identical to the preceding release.
+- Normal build and existing IB checks pass. Placement, six section numbers, unchanged source paragraphs, local references and evidence boundaries were reviewed.
+- Rendered HTTP preview inspected at 1440px, 768px and 390px; no horizontal overflow. The case occupies about 411px vertically on desktop and 865px on mobile. Menu/Work navigation, the project card and the return journey remain usable.
+- State A remains active; PASS stays supporting professional evidence when a future verified flagship is integrated. Production confirmation is recorded in the follow-up PR after deployment.

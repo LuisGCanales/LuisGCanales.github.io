@@ -31,7 +31,7 @@ const projects = [
   },
 ];
 
-function head({ title, description, path, image, robots, socialSiteName }) {
+function head({ title, description, path, image, robots, socialSiteName, styleVersion = assetVersion }) {
   const canonical = `${siteUrl}${path}`;
   const imageUrl = `${siteUrl}${image}`;
   return `<!DOCTYPE html>
@@ -45,7 +45,7 @@ function head({ title, description, path, image, robots, socialSiteName }) {
   <meta name="theme-color" content="#0b1118">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=${assetVersion}">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=${styleVersion}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${socialSiteName || 'Luis Canales — Financial Markets Portfolio'}">
   <meta property="og:title" content="${title}">
