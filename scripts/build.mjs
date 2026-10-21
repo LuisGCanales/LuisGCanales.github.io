@@ -1,5 +1,6 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { investmentBankingContext, renderInvestmentBanking } from './contexts/investment-banking.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const siteUrl = 'https://luisgcanales.github.io';
@@ -7,7 +8,7 @@ const linkedin = 'https://www.linkedin.com/in/luiscanalesmx/';
 const github = 'https://github.com/luisgcanales';
 const email = 'luis.canales.oc@gmail.com';
 const cv = '/assets/docs/Luis_Canales_Portfolio_CV.pdf';
-const assetVersion = '20260914-portrait-original';
+const assetVersion = '20261020-investment-banking';
 
 const projects = [
   {
@@ -30,7 +31,7 @@ const projects = [
   },
 ];
 
-function head({ title, description, path, image }) {
+function head({ title, description, path, image, robots, socialSiteName }) {
   const canonical = `${siteUrl}${path}`;
   const imageUrl = `${siteUrl}${image}`;
   return `<!DOCTYPE html>
@@ -40,13 +41,13 @@ function head({ title, description, path, image }) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${title}</title>
   <meta name="description" content="${description}">
-  <meta name="author" content="Luis Canales">
+  <meta name="author" content="Luis Canales">${robots ? `\n  <meta name="robots" content="${robots}">` : ''}
   <meta name="theme-color" content="#0b1118">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
   <link rel="stylesheet" href="/assets/css/styles.css?v=${assetVersion}">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Luis Canales — Financial Markets Portfolio">
+  <meta property="og:site_name" content="${socialSiteName || 'Luis Canales — Financial Markets Portfolio'}">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${canonical}">
@@ -70,52 +71,55 @@ function head({ title, description, path, image }) {
 </head>`;
 }
 
-function header(active = '') {
+function header(active = '', context = null) {
   const current = (key) => (active === key ? ' aria-current="page"' : '');
-  return `<body>
+  return `<body${context ? ` data-entry-context="${context.id}"` : ''}>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="shell nav-wrap">
-      <a class="wordmark" href="/" aria-label="Luis Canales home">
+      <a class="wordmark" href="${context?.path || '/'}" aria-label="Luis Canales${context ? ' Investment Banking' : ''} home">
         <span class="wordmark-mark" aria-hidden="true">LC</span>
         <span>Luis Canales</span>
       </a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-menu">Menu</button>
       <nav class="site-nav" id="site-menu" data-nav-menu data-open="false" aria-label="Primary navigation">
-        <a href="/"${current('home')}>Home</a>
-        <a href="/work/"${current('work')}>Work</a>
-        <a href="/about/"${current('about')}>About</a>
-        <a class="nav-cv" href="${cv}" target="_blank" rel="noopener">Portfolio CV</a>
+        <a href="${context?.path || '/'}"${current('home')}>Home</a>
+        <a href="${context ? '#selected-work' : '/work/'}"${current('work')}>Work</a>
+        <a href="${context ? '#about' : '/about/'}"${current('about')}>About</a>
+        <a class="nav-cv" href="${context?.cv || cv}" target="_blank" rel="noopener"${context ? ' aria-label="Investment Banking CV"' : ''}>${context ? 'CV' : 'Portfolio CV'}</a>${context ? '\n        <a href="/?from=investment-banking">Explore Full Portfolio</a>' : ''}
       </nav>
     </div>
-  </header>`;
+  </header>${context ? '' : `
+  <div class="context-return" data-context-return hidden>
+    <div class="shell"><a data-entry-link="${investmentBankingContext.id}" href="${investmentBankingContext.path}"><span aria-hidden="true">← </span>${investmentBankingContext.returnLabel}</a></div>
+  </div>`}`;
 }
 
-function footer() {
+function footer(context = null) {
   return `<footer class="site-footer">
     <div class="shell">
       <div class="footer-grid">
         <div>
           <p class="footer-name">Luis Canales</p>
-          <p class="footer-copy">Financial markets, quantitative analysis, risk, market structure, and decision support.</p>
+          <p class="footer-copy">${context ? 'Professional analytical execution and sustained financial preparation for Investment Banking.' : 'Financial markets, quantitative analysis, risk, market structure, and decision support.'}</p>
         </div>
         <nav class="footer-links" aria-label="Contact links">
           <a href="${linkedin}" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="${github}" target="_blank" rel="noopener">GitHub</a>
+          ${context ? '<a href="/?from=investment-banking">Explore Full Portfolio</a>' : `<a href="${github}" target="_blank" rel="noopener">GitHub</a>`}
           <a href="mailto:${email}">Email</a>
-          <a href="${cv}" target="_blank" rel="noopener">Portfolio CV</a>
+          <a href="${context?.cv || cv}" target="_blank" rel="noopener">${context ? 'Investment Banking CV' : 'Portfolio CV'}</a>
         </nav>
       </div>
-      <div class="footer-meta">Independent research portfolio · Mexico City</div>
+      <div class="footer-meta">${context ? 'Investment Banking profile' : 'Independent research portfolio'} · Mexico City</div>
     </div>
   </footer>
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js?v=${assetVersion}"></script>
 </body>
 </html>`;
 }
 
-function layout(meta, active, body) {
-  return `${head(meta)}${header(active)}<main id="main">${body}</main>${footer()}`;
+function layout(meta, active, body, context = null) {
+  return `${head(meta)}${header(active, context)}<main id="main">${body}</main>${footer(context)}`;
 }
 
 function tags(items) {
@@ -603,6 +607,7 @@ const derivatives = layout(
 );
 
 const pages = new Map([
+  ['investment-banking/index.html', renderInvestmentBanking({ layout, linkedin, email })],
   ['index.html', home],
   ['work/index.html', work],
   ['about/index.html', about],
@@ -625,6 +630,15 @@ const pages = new Map([
       .join('\n')}\n</urlset>\n`,
   ],
 ]);
+
+const requiredAssets = [investmentBankingContext.cv];
+if (investmentBankingContext.flagship) requiredAssets.push(investmentBankingContext.flagship.href);
+for (const href of requiredAssets) {
+  const relativePath = href.slice(1) + (href.endsWith('/') ? 'index.html' : '');
+  if (!pages.has(relativePath) && !existsSync(join(root, relativePath))) {
+    throw new Error(`Missing Investment Banking destination: ${href}`);
+  }
+}
 
 for (const [relativePath, content] of pages) {
   const output = join(root, relativePath);

@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "check:investment-banking": "node scripts/check-investment-banking.mjs",
     "serve": "python3 -m http.server 4173"
   }
 }
