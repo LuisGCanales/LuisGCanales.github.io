@@ -8,7 +8,7 @@ const linkedin = 'https://www.linkedin.com/in/luiscanalesmx/';
 const github = 'https://github.com/luisgcanales';
 const email = 'luis.canales.oc@gmail.com';
 const cv = '/assets/docs/Luis_Canales_Portfolio_CV.pdf';
-const assetVersion = '20261020-investment-banking';
+const assetVersion = '20261020-ib-project-card';
 
 const projects = [
   {
@@ -126,15 +126,15 @@ function tags(items) {
   return `<div class="tags">${items.map((item) => `<span class="tag">${item}</span>`).join('')}</div>`;
 }
 
-function projectCards() {
+function projectCards(items = projects) {
   return `<div class="project-list">
-    ${projects
+    ${items
       .map(
         (project) => `<a class="project-card" href="${project.href}">
       <span class="project-number">${project.number}</span>
       <div>
         <h3>${project.title}</h3>
-        <p>${project.description}</p>
+        ${(project.paragraphs || [project.description]).map((paragraph) => `<p>${paragraph}</p>`).join('')}
       </div>
       <div class="project-meta">
         ${tags(project.tags)}
@@ -607,7 +607,7 @@ const derivatives = layout(
 );
 
 const pages = new Map([
-  ['investment-banking/index.html', renderInvestmentBanking({ layout, linkedin, email })],
+  ['investment-banking/index.html', renderInvestmentBanking({ layout, linkedin, email, projectCards })],
   ['index.html', home],
   ['work/index.html', work],
   ['about/index.html', about],

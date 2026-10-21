@@ -1314,15 +1314,13 @@ img {
 .ib-deliverables p { margin: 0.5rem 0 0; color: var(--slate); font-size: 0.94rem; }
 .ib-page .kicker { display: block; font-size: 0.7rem; font-weight: 650; }
 .ib-preparation-grid article { padding: 1.5rem 0; border-top: 1px solid var(--line-strong); }
-.ib-page h3 { margin: 0 0 0.8rem; font-family: var(--serif); font-size: 1.6rem; font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; }
+.ib-page :where(article, .ib-workflow) h3 { margin: 0 0 0.8rem; font-family: var(--serif); font-size: 1.6rem; font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; }
 .ib-preparation-grid p:not(.kicker) { margin: 0; color: var(--slate); font-size: 0.96rem; }
 .ib-education { margin: 1.4rem 0 0; padding: 1.3rem 1.5rem; border-left: 2px solid var(--copper); background: var(--paper-deep); }
 .ib-education strong, .ib-education span { display: block; }
 .ib-education strong { font-weight: 500; color: var(--ink-soft); }
 .ib-education span { margin-top: 0.35rem; color: var(--slate); font-size: 0.9rem; }
-.ib-research { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: clamp(2rem, 5vw, 4rem); padding-block: 2rem; border-block: 1px solid var(--line-strong); }
-.ib-research .status { align-items: baseline; font-size: 0.68rem; }
-.ib-research h3 { margin-top: 1rem; font-size: clamp(1.7rem, 3vw, 2.5rem); }
+.ib-page .project-card p + p { margin-top: 1rem; }
 .ib-text-link { color: var(--copper-bright); font-size: 0.94rem; }
 .ib-secondary-project { max-width: 900px; padding-top: 2rem; }
 .ib-secondary-project p:not(.kicker) { margin: 0; color: var(--slate); font-size: 0.96rem; }
@@ -1347,7 +1345,7 @@ img {
 @media (max-width: 860px) {
   .ib-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(190px, 0.38fr); gap: 2rem; }
   .ib-page .ib-hero h1 { font-size: clamp(3.5rem, 7.5vw, 5rem); }
-  .ib-page .section-head, .ib-research { grid-template-columns: 1fr; gap: 1.5rem; }
+  .ib-page .section-head { grid-template-columns: 1fr; gap: 1.5rem; }
   .ib-deliverables, .ib-preparation-grid { gap: 1.2rem; }
   .ib-approach { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
