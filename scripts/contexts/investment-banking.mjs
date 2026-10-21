@@ -12,7 +12,7 @@ export const investmentBankingContext = {
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 
-export function renderInvestmentBanking({ layout, linkedin, email, context = investmentBankingContext }) {
+export function renderInvestmentBanking({ layout, linkedin, email, projectCards, context = investmentBankingContext }) {
   const flagship = context.flagship;
   if (flagship && (flagship.status !== 'verified' ||
       ['title', 'summary', 'href', 'ctaLabel'].some((key) => typeof flagship[key] !== 'string' || !flagship[key].trim()) ||
@@ -97,13 +97,17 @@ export function renderInvestmentBanking({ layout, linkedin, email, context = inv
         <div><p class="section-index">03 / Selected work</p><h2 id="evidence-title">Financial questions in context.</h2></div>
         <p>${flagship ? 'Broader research complements the applied case with a framework for organizing macro-financial uncertainty.' : 'Independent research and interdisciplinary project work provide supporting evidence of how I organize uncertainty and connect analysis with practical constraints.'}</p>
       </div>
-      ${flagship ? `<p><a class="ib-text-link" href="${researchHref}">Explore USD/MXN research — empirical analysis in development →</a></p>` : `<article class="ib-research">
-        <div><span class="status">Independent research · In development</span><h3>USD/MXN Macro-Financial Decision Framework</h3></div>
-        <div class="ib-copy"><p>How do monetary incentives, global conditions and Mexico-specific information interact in exchange-rate dynamics? This research organizes those channels to support financial scenarios and the assessment of cross-border uncertainty.</p>
-          <p>The research design and data methodology are defined; empirical analysis and validation remain in development. Its current evidence is the analytical framework and research plan.</p>
-          <a class="ib-text-link" href="${researchHref}">Explore the research framework <span aria-hidden="true">→</span></a>
-        </div>
-      </article>
+      ${flagship ? `<p><a class="ib-text-link" href="${researchHref}">Explore USD/MXN research — empirical analysis in development →</a></p>` : `${projectCards([{
+        number: '01',
+        title: 'USD/MXN Macro-Financial Decision Framework',
+        href: researchHref,
+        paragraphs: [
+          'How do monetary incentives, global conditions and Mexico-specific information interact in exchange-rate dynamics? This research organizes those channels to support financial scenarios and the assessment of cross-border uncertainty.',
+          'The research design and data methodology are defined; empirical analysis and validation remain in development. Its current evidence is the analytical framework and research plan.',
+        ],
+        tags: ['Markets', 'FX', 'Macro-Finance'],
+        status: 'Independent research · In development',
+      }])}
       <article class="ib-secondary-project">
         <p class="kicker">Additional perspective · 2020–2022</p>
         <h3>Carbon Oh-No! · Climate-finance proof of concept</h3>

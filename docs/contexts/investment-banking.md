@@ -46,7 +46,7 @@ Use direct first-person professional English, precise evidence categories and re
 1. Hero: Investment Banking; contribution; consulting scope; IB CV and execution CTA; compact preparation/education facts.
 2. Professional execution: stakeholder question → method and validation → usable deliverables; explain transfer without inventing transactions.
 3. Financial preparation: accounting/coursework, corporate finance, markets/instrument valuation; education and availability.
-4. Selected work: canonical USD/MXN research, current status and relevance; compact climate-finance proof of concept.
+4. Selected work: canonical USD/MXN research, current status and relevance; use the public portfolio's shared project-card renderer and styles so the whole preview is one link with the same hover treatment. Preserve the origin parameter. Follow with a compact climate-finance proof of concept.
 5. Understanding the function: client objective, financial analysis, valuation/alternatives, feasibility/diligence/coordination, materials and execution support. Explicitly personal understanding, not employment history; include repetitive work and review.
 6. Analytical approach: Frame / Structure / Test / Translate, compact editorial sequence rather than another large process diagram.
 7. Direction/about and contact: reliable contribution while learning institutional judgment; long-term IB interest; IB CV, LinkedIn, email and broader portfolio.
