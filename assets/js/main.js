@@ -42,9 +42,10 @@ if (returnBar && knownContext(entryContext)) {
   if (!storageAvailable) {
     document.querySelectorAll('a[href]').forEach((link) => {
       const url = new URL(link.href, window.location.href);
-      if (url.origin === window.location.origin && url.pathname.endsWith('/') && !url.hash && !link.dataset.entryLink) {
+      const isSamePageAnchor = url.hash && url.pathname === window.location.pathname;
+      if (url.origin === window.location.origin && url.pathname.endsWith('/') && !isSamePageAnchor && !link.dataset.entryLink) {
         url.searchParams.set('from', entryContext);
-        link.href = `${url.pathname}${url.search}`;
+        link.href = `${url.pathname}${url.search}${url.hash}`;
       }
     });
   }

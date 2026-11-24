@@ -4,6 +4,7 @@ export const investmentBankingContext = {
   id: 'investment-banking',
   path: '/investment-banking/',
   label: 'Investment Banking',
+  footerCopy: 'Professional analytical execution and sustained financial preparation for Investment Banking.',
   returnLabel: 'Return to Investment Banking Profile',
   cv: '/assets/docs/Luis_Canales_Investment_Banking_CV.pdf',
   flagship: null,
