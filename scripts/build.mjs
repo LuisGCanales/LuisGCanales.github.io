@@ -1,6 +1,9 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { investmentBankingContext, renderInvestmentBanking } from './contexts/investment-banking.mjs';
+import { marketsContext, renderMarkets } from './contexts/markets.mjs';
+import { curvePath } from './implementations/yield-curve-evidence.mjs';
+import { curveRequiredAssets, renderYieldCurve } from './implementations/yield-curve.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const siteUrl = 'https://luisgcanales.github.io';
@@ -8,7 +11,8 @@ const linkedin = 'https://www.linkedin.com/in/luiscanalesmx/';
 const github = 'https://github.com/luisgcanales';
 const email = 'luis.canales.oc@gmail.com';
 const cv = '/assets/docs/Luis_Canales_Portfolio_CV.pdf';
-const assetVersion = '20261020-ib-project-card';
+const assetVersion = '20261123-markets';
+const contexts = [investmentBankingContext, marketsContext];
 
 const projects = [
   {
@@ -77,7 +81,7 @@ function header(active = '', context = null) {
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="shell nav-wrap">
-      <a class="wordmark" href="${context?.path || '/'}" aria-label="Luis Canales${context ? ' Investment Banking' : ''} home">
+      <a class="wordmark" href="${context?.path || '/'}" aria-label="Luis Canales${context ? ' ' + context.label : ''} home">
         <span class="wordmark-mark" aria-hidden="true">LC</span>
         <span>Luis Canales</span>
       </a>
@@ -86,12 +90,13 @@ function header(active = '', context = null) {
         <a href="${context?.path || '/'}"${current('home')}>Home</a>
         <a href="${context ? '#selected-work' : '/work/'}"${current('work')}>Work</a>
         <a href="${context ? '#about' : '/about/'}"${current('about')}>About</a>
-        <a class="nav-cv" href="${context?.cv || cv}" target="_blank" rel="noopener"${context ? ' aria-label="Investment Banking CV"' : ''}>${context ? 'CV' : 'Portfolio CV'}</a>${context ? '\n        <a href="/?from=investment-banking">Explore Full Portfolio</a>' : ''}
+        <a class="nav-cv" href="${context?.cv || cv}" target="_blank" rel="noopener"${context ? ` aria-label="${context.label} CV"` : ''}>${context ? 'CV' : 'Portfolio CV'}</a>${context ? `\n        <a href="/?from=${context.id}">Explore Full Portfolio</a>` : ''}
       </nav>
     </div>
   </header>${context ? '' : `
   <div class="context-return" data-context-return hidden>
-    <div class="shell"><a data-entry-link="${investmentBankingContext.id}" href="${investmentBankingContext.path}"><span aria-hidden="true">← </span>${investmentBankingContext.returnLabel}</a></div>
+    <div class="shell">${contexts.map(({ id, path, returnLabel }) =>
+      `<a data-entry-link="${id}" href="${path}" hidden><span aria-hidden="true">← </span>${returnLabel}</a>`).join('')}</div>
   </div>`}`;
 }
 
@@ -101,16 +106,16 @@ function footer(context = null) {
       <div class="footer-grid">
         <div>
           <p class="footer-name">Luis Canales</p>
-          <p class="footer-copy">${context ? 'Professional analytical execution and sustained financial preparation for Investment Banking.' : 'Financial markets, quantitative analysis, risk, market structure, and decision support.'}</p>
+          <p class="footer-copy">${context ? context.footerCopy : 'Financial markets, quantitative analysis, risk, market structure, and decision support.'}</p>
         </div>
         <nav class="footer-links" aria-label="Contact links">
           <a href="${linkedin}" target="_blank" rel="noopener">LinkedIn</a>
-          ${context ? '<a href="/?from=investment-banking">Explore Full Portfolio</a>' : `<a href="${github}" target="_blank" rel="noopener">GitHub</a>`}
+          ${context ? `<a href="/?from=${context.id}">Explore Full Portfolio</a>` : `<a href="${github}" target="_blank" rel="noopener">GitHub</a>`}
           <a href="mailto:${email}">Email</a>
-          <a href="${context?.cv || cv}" target="_blank" rel="noopener">${context ? 'Investment Banking CV' : 'Portfolio CV'}</a>
+          <a href="${context?.cv || cv}" target="_blank" rel="noopener">${context ? context.label + ' CV' : 'Portfolio CV'}</a>
         </nav>
       </div>
-      <div class="footer-meta">${context ? 'Investment Banking profile' : 'Independent research portfolio'} · Mexico City</div>
+      <div class="footer-meta">${context ? context.label + ' profile' : 'Independent research portfolio'} · Mexico City</div>
     </div>
   </footer>
   <script src="/assets/js/main.js?v=${assetVersion}"></script>
@@ -608,6 +613,8 @@ const derivatives = layout(
 
 const pages = new Map([
   ['investment-banking/index.html', renderInvestmentBanking({ layout, linkedin, email, projectCards })],
+  [marketsContext.path.slice(1) + 'index.html', renderMarkets({ layout, email, projectCards, projects })],
+  [curvePath.slice(1) + 'index.html', renderYieldCurve({ layout })],
   ['index.html', home],
   ['work/index.html', work],
   ['about/index.html', about],
@@ -625,18 +632,19 @@ const pages = new Map([
       '/work/usdmxn/',
       '/work/mexican-derivatives-regulation/',
       '/about/',
+      curvePath,
     ]
       .map((path) => `  <url><loc>${siteUrl}${path}</loc></url>`)
       .join('\n')}\n</urlset>\n`,
   ],
 ]);
 
-const requiredAssets = [investmentBankingContext.cv];
+const requiredAssets = [...contexts.map(({ cv }) => cv), ...curveRequiredAssets];
 if (investmentBankingContext.flagship) requiredAssets.push(investmentBankingContext.flagship.href);
 for (const href of requiredAssets) {
   const relativePath = href.slice(1) + (href.endsWith('/') ? 'index.html' : '');
   if (!pages.has(relativePath) && !existsSync(join(root, relativePath))) {
-    throw new Error(`Missing Investment Banking destination: ${href}`);
+    throw new Error(`Missing portfolio destination: ${href}`);
   }
 }
 

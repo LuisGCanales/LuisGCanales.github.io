@@ -1376,3 +1376,93 @@ img {
   html:has(.ib-page) { scroll-behavior: auto; }
   .ib-page .button { transition: none; }
 }
+
+/* Global Markets and the published curve study share the site's editorial system. */
+.context-return a[hidden] { display: none; }
+
+.markets-page .markets-hero { padding-block: clamp(3rem, 7vw, 6.4rem); }
+.markets-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2.25rem, 5vw, 5.5rem);
+  align-items: center;
+}
+.markets-page .hero h1 { font-size: clamp(3.4rem, 7.5vw, 7rem); }
+.markets-page .hero-summary { max-width: 35rem; font-size: clamp(1rem, 1.45vw, 1.18rem); }
+.markets-preview {
+  display: block;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-deep);
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+.markets-preview:hover { border-color: var(--copper); background: var(--surface); }
+.markets-preview figure, .curve-figure { margin: 0; }
+.markets-preview img, .curve-figure img { display: block; width: 100%; height: auto; background: #fff; }
+.markets-preview figcaption { padding: 1.25rem 1.35rem 1.5rem; }
+.markets-preview .kicker { display: block; margin-bottom: 0.5rem; }
+.markets-preview strong { font: 500 clamp(1.35rem, 2vw, 1.9rem)/1.14 var(--serif); }
+.markets-page .section { padding-block: clamp(3.25rem, 6vw, 5.5rem); }
+.markets-page .section-head { grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); }
+.markets-page .section-head:last-child { margin-bottom: 0; }
+.markets-page .kicker { display: block; margin-bottom: 0.65rem; }
+.markets-copy p + p { margin-top: 0.95rem; }
+.markets-related { padding-top: 1.4rem; border-top: 1px solid var(--line-strong); }
+.markets-related h3 { margin: 0 0 0.55rem; font: 500 1.5rem/1.2 var(--serif); }
+.markets-related p { max-width: var(--reading); margin: 0; color: var(--slate); }
+.markets-muted { color: var(--slate); font-size: 0.87rem; }
+.markets-workflow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+.markets-workflow li { margin-left: 1.5rem; padding-block: 1rem; border-top: 1px solid var(--line-strong); }
+.markets-workflow li::marker { color: var(--copper); font-size: 0.9rem; }
+.markets-workflow h3 { margin: 0; font: 500 1.5rem/1.2 var(--serif); }
+.markets-workflow p { max-width: 30rem; margin: 0.5rem 0 0; color: var(--slate); }
+
+.curve-page .project-hero h1 { font-size: clamp(2.7rem, 6.2vw, 5.75rem); }
+.curve-page .content-section { gap: clamp(1.25rem, 4vw, 3.4rem); padding-block: clamp(3rem, 6vw, 5rem); }
+.curve-page .content-section > * { min-width: 0; }
+.curve-steps { margin: 0 0 1.25rem; padding-left: 1.3rem; color: var(--ink-soft); }
+.curve-steps li + li { margin-top: 0.6rem; }
+.curve-page .curve-full { display: block; }
+.curve-section-intro { margin-bottom: 1.75rem; }
+.curve-section-intro p { max-width: var(--reading); margin: 1rem 0 0; }
+.curve-figure { margin-block: 0 1.4rem; }
+.curve-figure > a { display: block; border: 1px solid var(--line-strong); }
+.curve-figure figcaption { margin-top: 0.7rem; color: var(--slate); font-size: 0.84rem; }
+.curve-table-wrap { width: 100%; overflow-x: auto; margin-block: 0 1.25rem; }
+.curve-table-wrap:focus-visible, .curve-details summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.curve-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.curve-table-wide .curve-table { min-width: 39rem; }
+.curve-table caption { text-align: left; padding: 0.7rem 0; color: var(--ink-soft); }
+.curve-table td, .curve-table th { border-bottom: 1px solid var(--line-strong); padding: 0.66rem 0.6rem; }
+.curve-table tbody th { text-align: left; font-weight: 500; }
+.curve-table thead th { background: var(--surface); text-align: left; font-size: 0.83rem; }
+.curve-table td { white-space: nowrap; color: var(--ink-soft); }
+.curve-details { margin-bottom: 1rem; border-block: 1px solid var(--line-strong); }
+.curve-details summary { cursor: pointer; padding: 0.8rem 0; color: var(--copper-bright); }
+.curve-details[open] { padding-bottom: 0.8rem; }
+.curve-details p { color: var(--slate); font-size: 0.86rem; }
+.curve-page .curve-links { display: flex; flex-wrap: wrap; gap: 0.45rem 1.35rem; margin-top: 1rem; color: var(--copper-bright); font-size: 0.91rem; }
+.curve-page .curve-downloads { margin-top: 1.5rem; }
+.curve-page section[id], .markets-page section[id] { scroll-margin-top: 1.5rem; }
+
+@media (min-width: 861px) {
+  body[data-entry-context="markets"] .site-nav { gap: 1.1rem; }
+}
+@media (max-width: 860px) {
+  .markets-hero-grid, .markets-page .section-head { grid-template-columns: minmax(0, 1fr); }
+  .markets-preview { max-width: 34rem; }
+}
+@media (max-width: 580px) {
+  .markets-workflow { grid-template-columns: minmax(0, 1fr); }
+  .markets-page .hero h1 { font-size: clamp(2.85rem, 12vw, 4.4rem); }
+  .markets-page .hero-actions, .curve-page .hero-actions { margin-top: 1.35rem; }
+  .curve-table { font-size: 0.81rem; }
+  .curve-table td, .curve-table th { padding-inline: 0.35rem; }
+  .curve-table thead th { font-size: 0.74rem; }
+}
